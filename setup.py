@@ -24,7 +24,7 @@ DATA_FILES = [
         ['debian/changelog']),
     ('/opt/extras.ubuntu.com/pdf-tools/share/icons',
         ['data/icons/updf.svg']),
-    ('/opt/extras.ubuntu.com/pdf-tools/share/pdf-tools', glob.glob('*.py'))
+    ('/opt/extras.ubuntu.com/pdf-tools/share/pdf-tools', glob.glob('src/*.py'))
 ]
 
 MAIN_DIR = os.getcwd()

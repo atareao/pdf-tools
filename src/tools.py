@@ -33,7 +33,7 @@ from gi.repository import GdkPixbuf
 from gi.repository import Poppler
 from comun import ROTATE_000, ROTATE_090, ROTATE_180, ROTATE_270
 from comun import MIMETYPES_PDF, MIMETYPES_PNG
-from comun import MMTOPNG, MMTOPIXEL
+from comun import MMTOPNG, MMTOPIXEL, EXTENSIONS_FROM
 from comun import _
 import os
 import shutil
