@@ -1,8 +1,8 @@
-pdf-tools (0.9.0-0extras16.04.0) xenial; urgency=medium
+pdf-tools (0.9.0-0extras16.04.1) xenial; urgency=medium
 
   * splitted
 
- -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 19 Jun 2016 11:55:27 +0200
+ -- Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>  Sun, 19 Jun 2016 12:15:12 +0200
 
 pdf-tools (0.8.0-0extras15.04.9) vivid; urgency=medium
 
