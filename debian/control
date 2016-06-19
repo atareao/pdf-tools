@@ -1,0 +1,21 @@
+Source: pdf-tools
+Section: utils
+Priority: extra
+Maintainer: Lorenzo Carbonell Cerezo <lorenzo.carbonell.cerezo@gmail.com>
+Build-Depends: debhelper (>= 9), python, python-distutils-extra, python-polib
+Standards-Version: 3.9.6
+Homepage: http://www.atareao.es
+
+Package: pdf-tools
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends},
+    python,
+    python-gi,
+    python-cairo,
+    python-pil,
+    python-pypdf2
+    gir1.2-gtk-3.0,
+    gir1.2-gdkpixbuf-2.0,
+    gir1.2-poppler-0.18,
+Description: This is a extension to manipulate pdf files
+ With this is extension you can manipulate pdf files
