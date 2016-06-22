@@ -21,10 +21,14 @@
 
 import gi
 try:
-    gi.require_version('GdkPixbuf', '2.0')
+    gi.require_version('Gtk', '3.0')
+    GTKVERSION = '3.0'
+    print('Gtk version:', GTKVERSION)
 except Exception as e:
+    gi.require_version('Gtk', '2.0')
+    GTKVERSION = '2.0'
+    print('Gtk version:', GTKVERSION)
     print(e)
-    exit(1)
 import os
 import locale
 import gettext

@@ -19,13 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import gi
-try:
-    gi.require_version('Gtk', '3.0')
-    gi.require_version('Poppler', '0.18')
-except Exception as e:
-    print(e)
-    exit(1)
+
 from gi.repository import Gtk
 from gi.repository import Poppler
 from miniview import MiniView
@@ -96,9 +90,14 @@ class FlipDialog(Gtk.Dialog):
         table.attach(label, 0, 1, 2, 3,
                      xoptions=Gtk.AttachOptions.FILL,
                      yoptions=Gtk.AttachOptions.SHRINK)
-        self.switch1 = Gtk.Switch()
+        if comun.GTKVERSION == '3.0':
+            self.switch1 = Gtk.Switch()
+            self.switch1.connect("notify::active",
+                                 self.slider_on_value_changed)
+        else:
+            self.switch1 = Gtk.CheckButton()
+            self.switch1.connect("active", self.slider_on_value_changed)
         self.switch1.set_name('switch1')
-        self.switch1.connect("notify::active", self.slider_on_value_changed)
         hbox1 = Gtk.HBox()
         hbox1.pack_start(self.switch1, 0, 0, 0)
         table.attach(hbox1, 1, 2, 2, 3,
@@ -110,9 +109,14 @@ class FlipDialog(Gtk.Dialog):
         table.attach(label, 0, 1, 3, 4,
                      xoptions=Gtk.AttachOptions.FILL,
                      yoptions=Gtk.AttachOptions.SHRINK)
-        self.switch2 = Gtk.Switch()
+        if comun.GTKVERSION == '3.0':
+            self.switch2 = Gtk.Switch()
+            self.switch2.connect("notify::active",
+                                 self.slider_on_value_changed)
+        else:
+            self.switch2 = Gtk.CheckButton()
+            self.switch2.connect("active", self.slider_on_value_changed)
         self.switch2.set_name('switch2')
-        self.switch2.connect("notify::active", self.slider_on_value_changed)
         hbox2 = Gtk.HBox()
         hbox2.pack_start(self.switch2, 0, 0, 0)
         table.attach(hbox2, 1, 2, 3, 4,

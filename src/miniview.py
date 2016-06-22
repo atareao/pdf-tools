@@ -19,12 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 import gi
 try:
     gi.require_version('Gtk', '3.0')
+    GTKVERSION = '3.0'
+    print('Gtk version:', GTKVERSION)
 except Exception as e:
+    gi.require_version('Gtk', '2.0')
+    GTKVERSION = '2.0'
+    print('Gtk version:', GTKVERSION)
     print(e)
-    exit(1)
 from gi.repository import Gtk
 from gi.repository import Gdk
 from gi.repository import GdkPixbuf
@@ -32,7 +37,7 @@ import cairo
 import math
 import tools
 
-from comun import SEPARATOR, RESOLUTION, MMTOPIXEL, MMTOPDF, MMTOPNG, TOP,\
+from comun import RESOLUTION, MMTOPIXEL, MMTOPDF, MMTOPNG, TOP,\
     MIDLE, BOTTOM, LEFT, CENTER, RIGHT, ROTATE_000, ROTATE_090, ROTATE_180,\
     ROTATE_270
 
@@ -72,7 +77,10 @@ class MiniView(Gtk.DrawingArea):
         self.size = 12
         self.position_vertical = TOP
         self.position_horizontal = LEFT
-        self.connect('draw', self.on_expose, None)
+        if GTKVERSION == '3.0':
+            self.connect('draw', self.on_expose, None)
+        elif GTKVERSION == '2.0':
+            self.connect('expose_event', self.on_expose, None)
         self.set_size_request(self.width, self.height)
 
     def on_expose(self, widget, cr, data):

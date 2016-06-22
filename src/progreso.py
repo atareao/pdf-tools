@@ -19,12 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import gi
-try:
-    gi.require_version('Gtk', '3.0')
-except Exception as e:
-    print(e)
-    exit(1)
+
 from gi.repository import Gtk
 from gi.repository import GObject
 import threading
